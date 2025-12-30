@@ -31,7 +31,7 @@ class ProductTextDataset(Dataset):
         return {
             "input_ids": enc["input_ids"],
             "attention_mask": enc["attention_mask"],
-            "sleeve_length": sleeve_length,
-            "pocket_type": pocket_type,
+            "sleeve": sleeve_length,
+            "pocket": pocket_type,
             "buttons": buttons,
         }
