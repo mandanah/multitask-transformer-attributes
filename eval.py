@@ -26,7 +26,7 @@ def evaluate(model, loader, device: str):
             pocket=pocket,
             buttons=buttons,
         )
-        total_loss += out["loss"].item()
+        total_loss += out["total_loss"].item()
         n += 1
 
         sleeve_pred = out["sleeve_logits"].argmax(dim=-1).cpu().tolist()

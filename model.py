@@ -30,7 +30,7 @@ class MultiTaskAttributeModel(nn.Module):
 
         sleeve_logits = self.sleeve_classifier(cls)
         pocket_logits = self.pocket_classifier(cls)
-        buttons_logits = self.buttons_classifier(cls).squeeze(-1)
+        buttons_logit = self.buttons_classifier(cls).squeeze(-1)
 
         total_loss = 0
         if sleeve is not None:
@@ -40,12 +40,12 @@ class MultiTaskAttributeModel(nn.Module):
             pocket_loss = self.pocket_loss(pocket_logits, pocket)
             total_loss += pocket_loss
         if buttons is not None:
-            buttons_loss = self.buttons_loss(buttons_logits, buttons)
+            buttons_loss = self.buttons_loss(buttons_logit, buttons)
             total_loss += buttons_loss
 
         return {
             "total_loss": total_loss,
             "sleeve_logits": sleeve_logits,
             "pocket_logits": pocket_logits,
-            "buttons_logits": buttons_logits,
+            "buttons_logit": buttons_logit,
         }
