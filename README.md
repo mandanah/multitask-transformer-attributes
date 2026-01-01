@@ -217,27 +217,6 @@ The model returns a dictionary with:
 - `pocket_logits`: Raw logits for pocket classification (shape: [batch_size, 3])
 - `buttons_logit`: Raw logit for button prediction (shape: [batch_size])
 
-## Performance Notes
-
-- **Current Setup**: Toy data with 6 samples (proof of concept)
-- **Production Use**: Requires substantial training data (1000+ samples per class)
-- **GPU Recommended**: Training is significantly faster with CUDA
-- **Inference Speed**: ~10-50ms per sample on CPU, <5ms on GPU
-
-## Future Improvements
-
-- [ ] Add data augmentation
-- [ ] Implement early stopping
-- [ ] Add learning rate finder
-- [ ] Support for additional base models (RoBERTa, ALBERT)
-- [ ] Implement class weights for imbalanced data
-- [ ] Add confidence thresholds for predictions
-- [ ] Create inference API endpoint
-
 ## License
 
 MIT
-
-## Contributing
-
-Contributions are welcome! Please ensure code follows the existing structure and includes appropriate type hints.
